@@ -513,11 +513,11 @@ if ($status == 'Verified') {
 
 
 
-                                            <div class="modal-footer">
+                                            <!-- <div class="modal-footer">
 
 
                                                 <a href="report.php <?php echo $ambil['nisn'] ?>" class="btn btn-primary">Lihat Bukti Pendaftaran</a>
-                                            </div>
+                                            </div> -->
 
                                         </div>
                                     </div>

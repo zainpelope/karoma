@@ -34,8 +34,7 @@ if (isset($_POST['btn-login'])) {
 		$_SESSION['role'] = "User";
 		header("location:user");
 	} else {
-		echo "<div class='alert alert-warning'>Username atau Password salah</div>
-        <meta http-equiv='refresh' content='2'>";
+		$alert = "<div class='alert alert-warning'>Username atau Password salah</div>";
 	}
 }
 ?>
@@ -80,13 +79,16 @@ if (isset($_POST['btn-login'])) {
 			transform: translateY(-50%);
 			cursor: pointer;
 		}
+
+		.alert-container {
+			margin-top: 10px;
+		}
 	</style>
 </head>
 
 <body>
 	<div class="login-container">
 		<img src="nurul.png" alt="School Logo" style="width: 150px; height: auto;">
-
 
 		<h3>Selamat Datang di MTS Nurul Karomah</h3>
 		<p class="text-muted">Silakan login untuk mengakses sistem</p>
@@ -100,6 +102,9 @@ if (isset($_POST['btn-login'])) {
 					<i class="bi bi-eye" id="toggle-icon"></i>
 				</span>
 			</div>
+			<?php if (!empty($alert)) { ?>
+				<div class="alert-container"><?php echo $alert; ?></div>
+			<?php } ?>
 			<button type="submit" class="btn btn-primary btn-block w-100 mb-2" name="btn-login">Masuk</button>
 			<a class="btn btn-info w-100" href="register.php">Daftar</a>
 		</form>

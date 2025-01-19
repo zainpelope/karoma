@@ -5,7 +5,7 @@ if (isset($_POST['submit'])) {
   $nik = $_POST['nik'];
   $namalengkap = $_POST['namalengkap'];
   $kelamin = $_POST['jeniskelamin'];
-  $userid = $_POST['id'];
+
 
   $tempatlahir = $_POST['tempatlahir'];
   $tgllahir = $_POST['tgllahir'];

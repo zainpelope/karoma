@@ -140,7 +140,7 @@ if ($lihathasil > 0) {
                                         <span class="fw-bold">2.</span> Klik <span class="badge bg-success">Submit</span>, kemudian klik <span class="badge bg-warning text-dark">Confirm</span>. Setelah di-confirm, data tidak dapat diubah kembali.
                                     </li>
                                     <li class="list-group-item">
-                                        <span class="fw-bold">3.</span> Jika sudah, bukti pendaftaran akan ditampilkan dan dapat diunduh menjadi PDF.
+                                        <span class="fw-bold">3.</span> Jika sudah, bukti dan hasil pendaftaran akan ditampilkan di website ini.
                                     </li>
                                 </ul>
                                 <div class="alert alert-info mt-4">
