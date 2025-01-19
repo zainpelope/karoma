@@ -126,7 +126,7 @@ $userid = $_SESSION['userid'];
                                         <li class="list-group-item">1. Pada bagian menu, klik 'Pendaftaran'.</li>
                                         <li class="list-group-item">2. Isi seluruh formulir yang ditampilkan kemudian periksa kembali, pastikan tidak ada data yang salah.</li>
                                         <li class="list-group-item">3. Klik submit, kemudian klik Confirm. Setelah di-confirm, data tidak dapat diubah kembali.</li>
-                                        <li class="list-group-item">4. Jika sudah, bukti pendaftaran akan ditampilkan dan dapat diunduh menjadi PDF.</li>
+                                        <li class="list-group-item">4. Jika sudah, bukti dan hasil pendaftaran akan ditampilkan di website ini.</li>
                                     </ol>
                                     <div class="alert alert-info mt-3 fs-5" role="alert">
                                         <strong>Note:</strong> Pihak sekolah baru akan menerima data Anda setelah Anda klik 'Confirm'.
