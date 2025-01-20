@@ -1,0 +1,53 @@
+CREATE TABLE userdata (
+    userdataid INT PRIMARY KEY AUTO_INCREMENT,
+    userid INT NOT NULL,
+    nisn VARCHAR(12) NOT NULL,
+    nik VARCHAR(16) NOT NULL,
+    namalengkap VARCHAR(50) NOT NULL,
+    jeniskelamin VARCHAR(1) NOT NULL,
+    tempatlahir VARCHAR(20) NOT NULL,
+    tanggallahir DATE NOT NULL,
+    alamat TEXT NOT NULL,
+    provinsi VARCHAR(30) NOT NULL,
+    kabupaten VARCHAR(30) NOT NULL,
+    kecamatan VARCHAR(30) NOT NULL,
+    kelurahan VARCHAR(30) NOT NULL,
+    agama VARCHAR(10) NOT NULL,
+    telepon VARCHAR(15) NOT NULL,
+    ayahnik VARCHAR(16) NOT NULL,
+    ayahnama VARCHAR(50) NOT NULL,
+    ayahpendidikan VARCHAR(5) NOT NULL,
+    ayahpekerjaan VARCHAR(15) NOT NULL,
+    ayahpenghasilan VARCHAR(25) NOT NULL,
+    ayahtelepon VARCHAR(15) NOT NULL,
+    ibunik VARCHAR(16) NOT NULL,
+    ibunama VARCHAR(50) NOT NULL,
+    ibupendidikan VARCHAR(5) NOT NULL,
+    ibupekerjaan VARCHAR(15) NOT NULL,
+    ibupenghasilan VARCHAR(25) NOT NULL,
+    ibutelepon VARCHAR(15) NOT NULL,
+    walinik VARCHAR(16) DEFAULT NULL,
+    walinama VARCHAR(50) DEFAULT NULL,
+    walipekerjaan VARCHAR(15) DEFAULT NULL,
+    walitelepon VARCHAR(15) DEFAULT NULL,
+    sekolahnpsn VARCHAR(10) NOT NULL,
+    sekolahnama VARCHAR(30) NOT NULL,
+    foto VARCHAR(99) NOT NULL,
+    scanijazahdepan VARCHAR(99) NOT NULL,
+    scanijazahbelakang VARCHAR(99) NOT NULL,
+    status VARCHAR(30) NOT NULL DEFAULT 'Unverified',
+    tglkonfirmasi DATE DEFAULT NULL,
+    status_diterima TINYINT(1) DEFAULT 0,
+    id_tahun INT DEFAULT NULL
+);
+CREATE TABLE user (
+    userid INT PRIMARY KEY AUTO_INCREMENT,
+    useremail VARCHAR(50) NOT NULL,
+    userpassword VARCHAR(50) NOT NULL,
+    tgldaftar TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE admin (
+    adminid INT AUTO_INCREMENT PRIMARY KEY,
+    adminemail VARCHAR(50) NOT NULL,
+    adminpassword VARCHAR(50) NOT NULL
+);
