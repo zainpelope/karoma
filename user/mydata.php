@@ -27,7 +27,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Richard's Lab: Pendaftaran</title>
+    <title>Pendaftaran</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="../assets/images/icon/favicon.ico">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -610,11 +610,7 @@
         </div>
         <!-- main content area end -->
         <!-- footer area start-->
-        <footer>
-            <div class="footer-area">
-                <p>PPDB Online by Richard's Lab</p>
-            </div>
-        </footer>
+        <?php include('../footer.html'); ?>
         <!-- footer area end-->
     </div>
     <!-- page container area end -->
