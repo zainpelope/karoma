@@ -173,17 +173,7 @@ $result = $conn->query($sql);
                                             ?>
                                         </select>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="statusFilter" class="form-label fw-bold">Pilih Status:</label>
-                                        <select id="statusFilter" class="form-select">
-                                            <option value="">Pilih Status</option>
-                                            <option value="Diterima">Diterima</option>
-                                            <option value="Belum Diterima">Belum Diterima</option>
-                                        </select>
-                                    </div>
                                 </div>
-
-                                <!-- Table -->
                                 <div class="table-responsive">
                                     <table id="pendaftarTable" class="table table-bordered table-hover align-middle">
                                         <thead class="table-dark">
@@ -191,8 +181,7 @@ $result = $conn->query($sql);
                                                 <th style="width: 5%;">#</th>
                                                 <th>Nama Siswa</th>
                                                 <th>Tanggal Mendaftar</th>
-                                                <th>Tahun Pelajaran</th>
-                                                <th>Status</th>
+                                                <th>Tahun Pelajaran</th>                                        
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -205,12 +194,7 @@ $result = $conn->query($sql);
                                                     echo "<td>" . htmlspecialchars($row['NamaSiswa'] ?? '') . "</td>";
                                                     echo "<td>" . htmlspecialchars($row['TanggalMendaftar'] ?? '') . "</td>";
                                                     echo "<td>" . htmlspecialchars($row['TahunPelajaran'] ?? '') . "</td>";
-                                                    echo "<td>";
-                                                    if ($row['Status'] === "Diterima") {
-                                                        echo "<span class='badge bg-success'>Diterima</span>";
-                                                    } else {
-                                                        echo "<span class='badge bg-warning'>Belum Diterima</span>";
-                                                    }
+                                               
                                                     echo "</td>";
                                                     echo "</tr>";
                                                 }
@@ -224,53 +208,10 @@ $result = $conn->query($sql);
                     </div>
                 </div>
             </div>
-
-
-
-            <!-- row area start-->
         </div>
     </div>
-    <!-- main content area end -->
-    <!-- footer area start-->
     <?php include('../footer.html'); ?>
-    <!-- footer area end-->
     </div>
-    <!-- page container area end -->
-
-
-
-
-    <!-- modal input -->
-    <div id="myModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Tambah Admin Baru</h4>
-                </div>
-                <form method="post">
-                    <div class="modal-body">
-
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input name="adminemail" type="email" class="form-control" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input name="adminpassword" type="password" class="form-control" placeholder="Password">
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                        <input type="submit" class="btn btn-primary" value="Submit" name="adminbaru">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-
     <script>
         $(document).ready(function() {
             $('input').on('keydown', function(event) {
@@ -293,17 +234,13 @@ $result = $conn->query($sql);
             });
         });
     </script>
-
-    <!-- jquery latest version -->
     <script src="../assets/js/vendor/jquery-2.2.4.min.js"></script>
-    <!-- bootstrap 4 js -->
     <script src="../assets/js/popper.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
     <script src="../assets/js/owl.carousel.min.js"></script>
     <script src="../assets/js/metisMenu.min.js"></script>
     <script src="../assets/js/jquery.slimscroll.min.js"></script>
     <script src="../assets/js/jquery.slicknav.min.js"></script>
-    <!-- Start datatable js -->
     <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
@@ -312,21 +249,15 @@ $result = $conn->query($sql);
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
-    <!-- start chart js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-    <!-- start highcharts js -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <!-- start zingchart js -->
     <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
     <script>
         zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
         ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
     </script>
-    <!-- all line chart activation -->
     <script src="../assets/js/line-chart.js"></script>
-    <!-- all pie chart -->
     <script src="../assets/js/pie-chart.js"></script>
-    <!-- others plugins -->
     <script src="../assets/js/plugins.js"></script>
     <script src="../assets/js/scripts.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
@@ -334,15 +265,10 @@ $result = $conn->query($sql);
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Inisialisasi DataTable
             var table = $('#pendaftarTable').DataTable();
-
-            // Filter berdasarkan Tahun Pelajaran
             $('#tahunPelajaran').on('change', function() {
                 table.column(3).search(this.value).draw();
             });
-
-            // Filter berdasarkan Status
             $('#statusFilter').on('change', function() {
                 table.column(4).search(this.value).draw();
             });
