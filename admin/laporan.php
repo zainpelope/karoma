@@ -89,9 +89,7 @@ $result = $conn->query($sql);
                             <li>
                                 <a href="form.php"><i class="ti-layout"></i><span>Dashboard</span></a>
                             </li>
-                            <li>
-                                <a href="user.php"><i class="ti-layout"></i><span>User Terdaftar</span></a>
-                            </li>
+                     
                             <li>
                                 <a href="admin.php"><i class="ti-layout"></i><span>Kelola Admin</span></a>
                             </li>
