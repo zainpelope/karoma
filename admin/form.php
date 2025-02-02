@@ -140,9 +140,9 @@ if ($role !== 'Admin') {
                         <div class="card shadow">
                             <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
                                 <h4>Formulir Pendaftaran</h4>
-                                <a href="exportformulir.php" target="_blank" class="btn btn-info btn-sm">
+                                <!-- <a href="exportformulir.php" target="_blank" class="btn btn-info btn-sm">
                                     <i class="bi bi-download"></i> Export Data
-                                </a>
+                                </a> -->
                             </div>
                             <div class="card-body">
                                 

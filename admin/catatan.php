@@ -133,9 +133,11 @@ if ($role !== 'Admin') {
             <div class="main-content-inner my-5">
            
             
-        <h2>Data Siswa Diterima</h2>
+        <h2>Data Siswa Ditolak</h2>
+        <div class="container mt-5">
+        <h2>Data Pendaftar Ditolak</h2>
         <div class="table-responsive">
-            <table class="table table-striped table-hover text-center" id="table-diterima">
+            <table class="table table-striped table-hover text-center" id="table-ditolak">
                 <thead class="table-dark">
                     <tr>
                         <th>No</th>
@@ -149,29 +151,30 @@ if ($role !== 'Admin') {
                 <tbody>
                     <?php
                     $no = 1;
-                    $terima = mysqli_query($conn, "SELECT * FROM userdata WHERE status_diterima = 1");
-                    while ($data = mysqli_fetch_array($terima)) {
-                  ?>
+                    $tolak = mysqli_query($conn, "SELECT * FROM userdata WHERE status_diterima = 2");
+                    while ($data = mysqli_fetch_array($tolak)) {
+                    ?>
                         <tr>
-                            <td><?php echo $no++?></td>
-                            <td><?php echo $data['namalengkap']?></td>
-                            <td><?php echo $data['nisn']?></td>
-                            <td><?php echo $data['tglkonfirmasi']?></td>
+                            <td><?php echo $no++; ?></td>
+                            <td><?php echo $data['namalengkap']; ?></td>
+                            <td><?php echo $data['nisn']; ?></td>
+                            <td><?php echo $data['tglkonfirmasi']; ?></td>
                             <td>
-                                <a class="btn btn-primary btn-sm" href="view.php?u=<?php echo $data['userid'];?>">
+                                <a class="btn btn-primary btn-sm" href="view.php?u=<?php echo $data['userid']; ?>">
                                     <i class="bi bi-eye"></i> Lihat Detail
                                 </a>
                             </td>
                             <td>
-                                <button class="btn btn-success btn-sm disabled">
-                                    <i class="bi bi-check-circle"></i> Diterima
+                                <button class="btn btn-danger btn-sm disabled">
+                                    <i class="bi bi-x-circle"></i> Ditolak
                                 </button>
                             </td>
                         </tr>
-                    <?php }?>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
+    </div>
     </div>
                             </div>
                         </div>
