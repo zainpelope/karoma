@@ -72,7 +72,7 @@ if ($role !== 'Admin') {
                             <li class="active">
                                 <a href="form.php"><i class="ti-layout"></i><span>Dashboard</span></a>
                             </li>
-                   
+                        
 
                             <li>
                                 <a href="admin.php"><i class="ti-layout"></i><span>Kelola Admin</span></a>
@@ -141,65 +141,50 @@ if ($role !== 'Admin') {
                                 </a>
                             </div>
                             <div class="card-body">
-                                <!-- Table scrollable container -->
-                                <div class="table-responsive">
-                                    <table id="dataTable3" class="table table-striped table-hover text-center">
-                                        <thead class="table-dark">
+                            <div class="table-responsive">
+                                <table id="dataTable3" class="table table-striped table-hover text-center">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th>
+                                            <th>NISN</th>
+                                            <th>Tanggal Submit</th>
+                                            <th>Opsi</th>
+                                            <th>Status<th>
+                                        
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                    $form = mysqli_query($conn, "SELECT * FROM userdata WHERE status='Verified' AND (status_diterima = 0 OR status_diterima IS NULL) ORDER BY userdataid DESC");
+                                        $no = 1;
+                                        while ($b = mysqli_fetch_array($form)) {
+                                        ?>
                                             <tr>
-                                                <th>No</th>
-                                                <th>Nama</th>
-                                                <th>NISN</th>
-                                                <th>Tanggal Submit</th>
-                                                <th>Opsi</th>
-                                                <th>Terima</th>
-                                                <th>Tolak</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $form = mysqli_query($conn, "SELECT * FROM userdata WHERE status='Verified' ORDER BY userdataid DESC");
-                                            $no = 1;
-                                            while ($b = mysqli_fetch_array($form)) {
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $no++ ?></td>
-                                                    <td><?php echo $b['namalengkap'] ?></td>
-                                                    <td><?php echo $b['nisn'] ?></td>
-                                                    <td><?php echo $b['tglkonfirmasi'] ?></td>
-                                                    <td>
-                                                        <a class="btn btn-primary btn-sm" href="view.php?u=<?php echo $b['userid']; ?>">
-                                                            <i class="bi bi-eye"></i> Lihat Detail
+                                                <td><?php echo $no++ ?></td>
+                                                <td><?php echo $b['namalengkap'] ?></td>
+                                                <td><?php echo $b['nisn'] ?></td>
+                                                <td><?php echo $b['tglkonfirmasi'] ?></td>
+                                                <td>
+                                                    <a class="btn btn-primary btn-sm" href="view.php?u=<?php echo $b['userid']; ?>">
+                                                        <i class="bi bi-eye"></i> Lihat Detail
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                        <a href="setuju.php?id=<?= $b['userdataid'] ?>&setuju=true" class="btn btn-success btn-sm">
+                                                            <i class="bi bi-check-circle"></i> Terima
+                                                        </a>
+                                                        <a href="setuju.php?id=<?= $b['userdataid'] ?>&tolak=true" class="btn btn-danger btn-sm">
+                                                            <i class="bi bi-x-circle"></i> Tolak
                                                         </a>
                                                     </td>
-                                                    <td>
-                                                        <?php if ($b['status_diterima'] == 1) : ?>
-                                                            <button class="btn btn-info btn-sm disabled">
-                                                                <i class="bi bi-check-circle"></i> Terima
-                                                            </button>
-                                                        <?php else : ?>
-                                                            <a href="setuju.php?id=<?= $b['userdataid'] ?>&setuju=true" class="btn btn-success btn-sm">
-                                                                <i class="bi bi-check-circle"></i> Terima
-                                                            </a>
-                                                        <?php endif; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php if ($b['status_diterima'] == 0) : ?>
-                                                            <button class="btn btn-danger btn-sm disabled">
-                                                                <i class="bi bi-x-circle"></i> Tolak
-                                                            </button>
-                                                        <?php else : ?>
-                                                            <a href="setuju.php?id=<?= $b['userdataid'] ?>&tolak=true" class="btn btn-danger btn-sm">
-                                                                <i class="bi bi-x-circle"></i> Tolak
-                                                            </a>
-                                                        <?php endif; ?>
-                                                    </td>
-                                                </tr>
-                                            <?php } ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- End of scrollable table -->
+                                            
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>

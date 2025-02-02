@@ -131,6 +131,10 @@ if ($role !== 'Admin') {
             </div>
 
             <div class="main-content-inner my-5">
+            <div class="mt-3">  <a href="terima.php" class="btn btn-success">Siswa Diterima</a>
+        <a href="tolak.php" class="btn btn-danger">Siswa Ditolak</a>
+    </div>
+    <br>
                 <div class="row">
                     <div class="col-12">
                         <div class="card shadow">
@@ -141,6 +145,7 @@ if ($role !== 'Admin') {
                                 </a>
                             </div>
                             <div class="card-body">
+                                
     <div class="table-responsive">
         <table id="dataTable3" class="table table-striped table-hover text-center">
             <thead class="table-dark">
@@ -156,7 +161,7 @@ if ($role !== 'Admin') {
             </thead>
             <tbody>
                 <?php
-                $form = mysqli_query($conn, "SELECT * FROM userdata WHERE status='Verified' ORDER BY userdataid DESC");
+               $form = mysqli_query($conn, "SELECT * FROM userdata WHERE status='Verified' AND (status_diterima = 0 OR status_diterima IS NULL) ORDER BY userdataid DESC");
                 $no = 1;
                 while ($b = mysqli_fetch_array($form)) {
                 ?>
@@ -171,25 +176,13 @@ if ($role !== 'Admin') {
                             </a>
                         </td>
                         <td>
-                            <?php if ($b['status_diterima'] == 1) : ?>
-                                <button class="btn btn-info btn-sm disabled">
-                                    <i class="bi bi-check-circle"></i> Terima
-                                </button>
-                            <?php else : ?>
                                 <a href="setuju.php?id=<?= $b['userdataid'] ?>&setuju=true" class="btn btn-success btn-sm">
                                     <i class="bi bi-check-circle"></i> Terima
                                 </a>
-                            <?php endif; ?>
-                            <?php if ($b['status_diterima'] == 0) : ?>
-                                <button class="btn btn-danger btn-sm disabled">
-                                    <i class="bi bi-x-circle"></i> Tolak
-                                </button>
-                            <?php else : ?>
                                 <a href="setuju.php?id=<?= $b['userdataid'] ?>&tolak=true" class="btn btn-danger btn-sm">
                                     <i class="bi bi-x-circle"></i> Tolak
                                 </a>
-                            <?php endif; ?>
-                        </td>
+                            </td>
                        
                     </tr>
                 <?php } ?>

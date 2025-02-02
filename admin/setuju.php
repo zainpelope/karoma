@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
     }
 
     if ($update) {
-        header("location: datauser.php");
+        header("location: index.php");
     } else {
         echo "Gagal memperbarui data";
     }
