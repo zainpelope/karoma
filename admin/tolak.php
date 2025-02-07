@@ -72,14 +72,12 @@ if ($role !== 'Admin') {
                             <li class="active">
                                 <a href="form.php"><i class="ti-layout"></i><span>Dashboard</span></a>
                             </li>
-                        
+
 
                             <li>
                                 <a href="admin.php"><i class="ti-layout"></i><span>Kelola Admin</span></a>
                             </li>
-                            <li>
-                                <a href="laporan.php"><i class="ti-layout"></i><span>Data Pendaftar</span></a>
-                            </li>
+
                             <li>
                                 <a href="pendaftaran.php"><i class="ti-layout"></i><span>Manajemen Pendaftaran</span></a>
                             </li>
@@ -130,65 +128,65 @@ if ($role !== 'Admin') {
                 </div>
             </div>
 
-   
-     
+
+
             <div class="main-content-inner my-5">
-           
-            
-           <h2>Data Siswa Ditolak</h2>
-           <div class="table-responsive">
-               <table class="table table-striped table-hover text-center" id="table-diterima">
-                   <thead class="table-dark">
-                    <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>NISN</th>
-                        <th>Tanggal Submit</th>
-                        <th>Opsi</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $no = 1;
-                    $tolak = mysqli_query($conn, "SELECT * FROM userdata WHERE status_diterima = 2");
-                    while ($data = mysqli_fetch_array($tolak)) {
-                    ?>
-                        <tr>
-                            <td><?php echo $no++; ?></td>
-                            <td><?php echo $data['namalengkap']; ?></td>
-                            <td><?php echo $data['nisn']; ?></td>
-                            <td><?php echo $data['tglkonfirmasi']; ?></td>
-                            <td>
-                                <a class="btn btn-primary btn-sm" href="view.php?u=<?php echo $data['userid']; ?>">
-                                    <i class="bi bi-eye"></i> Lihat Detail
-                                </a>
-                            </td>
-                            <td>
-                                <button class="btn btn-danger btn-sm disabled">
-                                    <i class="bi bi-x-circle"></i> Ditolak
-                                </button>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    </div>
-                            </div>
-                        </div>
-                    </div>
+
+
+                <h2>Data Siswa Ditolak</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover text-center" id="table-diterima">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>NISN</th>
+                                <th>Tanggal Submit</th>
+                                <th>Opsi</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $no = 1;
+                            $tolak = mysqli_query($conn, "SELECT * FROM userdata WHERE status_diterima = 2");
+                            while ($data = mysqli_fetch_array($tolak)) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $no++; ?></td>
+                                    <td><?php echo $data['namalengkap']; ?></td>
+                                    <td><?php echo $data['nisn']; ?></td>
+                                    <td><?php echo $data['tglkonfirmasi']; ?></td>
+                                    <td>
+                                        <a class="btn btn-primary btn-sm" href="view.php?u=<?php echo $data['userid']; ?>">
+                                            <i class="bi bi-eye"></i> Lihat Detail
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-danger btn-sm disabled">
+                                            <i class="bi bi-x-circle"></i> Ditolak
+                                        </button>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
 
-        <!-- Bootstrap 5 Icons -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Bootstrap 5 Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
 
 
-        <!-- Bootstrap 5 Icons -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Bootstrap 5 Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
 
     </div>
     <?php include('../footer.html'); ?>

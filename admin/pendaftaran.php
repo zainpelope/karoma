@@ -13,7 +13,6 @@ if (isset($_POST['adminbaru'])) {
     $password = $_POST['adminpassword'];
     $insert = mysqli_query($conn, "insert into admin(adminemail,adminpassword) values('$email','$password')");
     if ($insert) {
-        //berhasil bikin
         echo " <div class='alert alert-success'>
               Berhasil tambah admin baru.
           </div>
@@ -41,16 +40,13 @@ if (isset($_POST['adminbaru'])) {
     <link rel="stylesheet" href="../assets/css/metisMenu.css">
     <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="../assets/css/slicknav.min.css">
-    <!-- amchart css -->
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-    <!-- Start datatable css -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144808195-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -62,35 +58,24 @@ if (isset($_POST['adminbaru'])) {
 
         gtag('config', 'UA-144808195-1');
     </script>
-
-    <!-- others css -->
     <link rel="stylesheet" href="../assets/css/typography.css">
     <link rel="stylesheet" href="../assets/css/default-css.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
-    <!-- modernizr css -->
     <script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
 <body>
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <!-- preloader area start-->
     <div id="preloader">
         <div class="loader"></div>
     </div>
-    <!-- preloader area end -->
-    <!-- page container area start -->
     <div class="page-container">
-        <!-- sidebar menu area start -->
         <div class="sidebar-menu">
             <div class="sidebar-header">
                 <div style="color:white">
                     <h3>MTS. Nurul Karomah</3>
                 </div>
             </div>
-
             <div class="main-menu">
                 <div class="menu-inner">
                     <nav>
@@ -98,13 +83,10 @@ if (isset($_POST['adminbaru'])) {
                             <li>
                                 <a href="form.php"><i class="ti-layout"></i><span>Dashboard</span></a>
                             </li>
-                          
                             <li>
                                 <a href="admin.php"><i class="ti-layout"></i><span>Kelola Admin</span></a>
                             </li>
-                            <li>
-                                <a href="laporan.php"><i class="ti-layout"></i><span>Data Pendaftar</span></a>
-                            </li>
+
                             <li class="active">
                                 <a href="pendaftaran.php">
                                     <i class="ti-layout"></i><span>Manajemen Pendaftaran</span>
@@ -112,16 +94,12 @@ if (isset($_POST['adminbaru'])) {
                             </li>
                             <li>
                                 <a href="../logout.php"><span>Logout</span></a>
-
                             </li>
-
                         </ul>
                     </nav>
                 </div>
             </div>
         </div>
-        <!-- sidebar menu area end -->
-        <!-- main content area start -->
         <div class="main-content">
             <div class="header-area py-3 bg-primary text-white">
                 <div class="row align-items-center">
@@ -157,18 +135,20 @@ if (isset($_POST['adminbaru'])) {
                     </div>
                 </div>
             </div>
-
             <div class="main-content-inner">
-                <!-- Market Value Area Start -->
                 <div class="row mt-5 mb-5">
                     <div class="col-12">
                         <div class="card shadow-sm border-0">
                             <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-                                <h3 class="m-0">Manajemen Tahun Pendaftaran</h3>
-                                <a href="add_tahun.php" class="btn btn-light btn-sm"><i class="bi bi-plus-circle"></i> Tambah Tahun Pendaftaran</a>
+                                <div class="d-flex align-items-center">
+                                    <h3 class="m-0 mr-2">Manajemen Tahun Pendaftaran</h3>
+                                </div>
+                                <div>
+                                    <a href="../admin/laporan.php" class="btn btn-light btn-sm mr-2">Lihat Data Pertahun</a>
+                                    <a href="add_tahun.php" class="btn btn-light btn-sm">Tambah Tahun Pendaftaran</a>
+                                </div>
                             </div>
                             <div class="card-body">
-                                <!-- Table -->
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-hover align-middle">
                                         <thead class="table-dark">
@@ -183,11 +163,9 @@ if (isset($_POST['adminbaru'])) {
                                         </thead>
                                         <tbody>
                                             <?php
-                                            // Ambil data tahun dari database
                                             $no = 1;
                                             $query = mysqli_query($conn, "SELECT * FROM tahun ORDER BY tahun_pelajaran DESC");
                                             while ($row = mysqli_fetch_assoc($query)) {
-                                                // Tentukan kelas CSS berdasarkan status
                                                 $statusClass = $row['status'] == 1 ? 'text-success' : 'text-danger';
                                                 $status = $row['status'] == 1 ? 'Aktif' : 'Nonaktif';
 
@@ -213,86 +191,19 @@ if (isset($_POST['adminbaru'])) {
                     </div>
                 </div>
             </div>
-
-
-
-            <!-- row area start-->
         </div>
     </div>
-    <!-- main content area end -->
-    <!-- footer area start-->
     <?php include('../footer.html'); ?>
-    <!-- footer area end-->
-    </div>
-    <!-- page container area end -->
-
-
-
-
-    <!-- modal input -->
-    <div id="myModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Tambah Admin Baru</h4>
-                </div>
-                <form method="post">
-                    <div class="modal-body">
-
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input name="adminemail" type="email" class="form-control" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input name="adminpassword" type="password" class="form-control" placeholder="Password">
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                        <input type="submit" class="btn btn-primary" value="Submit" name="adminbaru">
-                    </div>
-                </form>
-            </div>
-        </div>
     </div>
 
 
-
-    <script>
-        $(document).ready(function() {
-            $('input').on('keydown', function(event) {
-                if (this.selectionStart == 0 && event.keyCode >= 65 && event.keyCode <= 90 && !(event.shiftKey) && !(event.ctrlKey) && !(event.metaKey) && !(event.altKey)) {
-                    var $t = $(this);
-                    event.preventDefault();
-                    var char = String.fromCharCode(event.keyCode);
-                    $t.val(char + $t.val().slice(this.selectionEnd));
-                    this.setSelectionRange(1, 1);
-                }
-            });
-        });
-
-        $(document).ready(function() {
-            $('#dataTable3').DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    'print'
-                ]
-            });
-        });
-    </script>
-
-    <!-- jquery latest version -->
     <script src="../assets/js/vendor/jquery-2.2.4.min.js"></script>
-    <!-- bootstrap 4 js -->
     <script src="../assets/js/popper.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
     <script src="../assets/js/owl.carousel.min.js"></script>
     <script src="../assets/js/metisMenu.min.js"></script>
     <script src="../assets/js/jquery.slimscroll.min.js"></script>
     <script src="../assets/js/jquery.slicknav.min.js"></script>
-    <!-- Start datatable js -->
     <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
@@ -301,37 +212,18 @@ if (isset($_POST['adminbaru'])) {
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
-    <!-- start chart js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-    <!-- start highcharts js -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <!-- start zingchart js -->
     <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
     <script>
         zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
         ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
     </script>
-    <!-- all line chart activation -->
     <script src="../assets/js/line-chart.js"></script>
-    <!-- all pie chart -->
     <script src="../assets/js/pie-chart.js"></script>
-    <!-- others plugins -->
     <script src="../assets/js/plugins.js"></script>
     <script src="../assets/js/scripts.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            $('input').on('keydown', function(event) {
-                if (this.selectionStart == 0 && event.keyCode >= 65 && event.keyCode <= 90 && !(event.shiftKey) && !(event.ctrlKey) && !(event.metaKey) && !(event.altKey)) {
-                    var $t = $(this);
-                    event.preventDefault();
-                    var char = String.fromCharCode(event.keyCode);
-                    $t.val(char + $t.val().slice(this.selectionEnd));
-                    this.setSelectionRange(1, 1);
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>

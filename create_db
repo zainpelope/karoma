@@ -51,3 +51,6 @@ CREATE TABLE admin (
     adminemail VARCHAR(50) NOT NULL,
     adminpassword VARCHAR(50) NOT NULL
 );
+
+ALTER TABLE tahun
+MODIFY COLUMN id_tahun BIGINT AUTO_INCREMENT PRIMARY KEY;

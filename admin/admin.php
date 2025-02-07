@@ -89,13 +89,11 @@ if (isset($_POST['adminbaru'])) {
                             <li>
                                 <a href="form.php"><i class="ti-layout"></i><span>Dashboard</span></a>
                             </li>
-                        
+
                             <li class="active">
                                 <a href="admin.php"><i class="ti-layout"></i><span>Kelola Admin</span></a>
                             </li>
-                            <li>
-                                <a href="laporan.php"><i class="ti-layout"></i><span>Data Pendaftar</span></a>
-                            </li>
+
                             <li>
                                 <a href="pendaftaran.php">
                                     <i class="ti-layout"></i><span>Manajemen Pendaftaran</span>

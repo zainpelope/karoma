@@ -4,20 +4,35 @@ include '../cek.php';
 
 if ($role !== 'Admin') {
     header("location:../login.php");
+    exit();
 }
 
-// Ambil tahun_pelajaran dari parameter URL (bukan id)
-$tahun_pelajaran = $_GET['tahun']; // Menggunakan tahun_pelajaran, bukan id
+if (isset($_GET['tahun'])) {
 
-// Pastikan tahun_pelajaran ada
-if (!$tahun_pelajaran) {
-    die("Tahun tidak ditemukan.");
-}
+    $stmt = $conn->prepare("DELETE FROM tahun WHERE tahun_pelajaran = ?");
+    if (!$stmt) {
+        die("Error preparing statement: " . $conn->error);
+    }
 
-// Hapus data berdasarkan tahun_pelajaran
-$query = "DELETE FROM tahun WHERE tahun_pelajaran = '$tahun_pelajaran'";
-if (mysqli_query($conn, $query)) {
-    header("Location: ../admin/pendaftaran.php"); // Redirect ke halaman index setelah berhasil menghapus
+    $tahun_pelajaran = $_GET['tahun'];
+    $stmt->bind_param("s", $tahun_pelajaran);
+
+    if ($stmt->execute()) {
+
+        $_SESSION['pesan'] = "Data tahun pelajaran berhasil dihapus.";
+        header("Location: ../admin/pendaftaran.php");
+        exit();
+    } else {
+
+        $_SESSION['pesan'] = "Gagal menghapus data tahun pelajaran: " . $stmt->error;
+        header("Location: ../admin/pendaftaran.php");
+        exit();
+    }
+
+    $stmt->close();
 } else {
-    echo "Gagal menghapus data: " . mysqli_error($conn);
+
+    $_SESSION['pesan'] = "Tahun pelajaran tidak ditemukan.";
+    header("Location: ../admin/pendaftaran.php");
+    exit();
 }

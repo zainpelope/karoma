@@ -89,23 +89,18 @@ $result = $conn->query($sql);
                             <li>
                                 <a href="form.php"><i class="ti-layout"></i><span>Dashboard</span></a>
                             </li>
-                     
                             <li>
                                 <a href="admin.php"><i class="ti-layout"></i><span>Kelola Admin</span></a>
                             </li>
+
                             <li class="active">
-                                <a href="laporan.php"><i class="ti-layout"></i><span>Data Pendaftar</span></a>
-                            </li>
-                            <li>
                                 <a href="pendaftaran.php">
                                     <i class="ti-layout"></i><span>Manajemen Pendaftaran</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="../logout.php"><span>Logout</span></a>
-
                             </li>
-
                         </ul>
                     </nav>
                 </div>
@@ -155,7 +150,7 @@ $result = $conn->query($sql);
                         <!-- Card -->
                         <div class="card shadow border-0">
                             <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-                                <h3 class="m-0">Manajemen Data Pendaftaran</h3>
+                                <h3 class="m-0">Data Pertahun</h3>
                             </div>
                             <div class="card-body">
                                 <!-- Filters -->
@@ -181,7 +176,7 @@ $result = $conn->query($sql);
                                                 <th style="width: 5%;">#</th>
                                                 <th>Nama Siswa</th>
                                                 <th>Tanggal Mendaftar</th>
-                                                <th>Tahun Pelajaran</th>                                        
+                                                <th>Tahun Pelajaran</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -194,7 +189,7 @@ $result = $conn->query($sql);
                                                     echo "<td>" . htmlspecialchars($row['NamaSiswa'] ?? '') . "</td>";
                                                     echo "<td>" . htmlspecialchars($row['TanggalMendaftar'] ?? '') . "</td>";
                                                     echo "<td>" . htmlspecialchars($row['TahunPelajaran'] ?? '') . "</td>";
-                                               
+
                                                     echo "</td>";
                                                     echo "</tr>";
                                                 }

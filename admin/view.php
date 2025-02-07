@@ -73,16 +73,20 @@ $ambil = mysqli_fetch_array($cekdulu);
                 <div class="menu-inner">
                     <nav>
                         <ul class="metismenu" id="menu">
-                            <li><a href="form.php"><span>Dashboard</span></a></li>
+
                             <li class="active">
-                                <a href="form.php"><i class="ti-layout"></i><span>Formulir</span></a>
+                                <a href="form.php"><i class="ti-layout"></i><span>Dashboard</span></a>
                             </li>
-                            <li>
-                                <a href="user.php"><i class="ti-layout"></i><span>User Terdaftar</span></a>
-                            </li>
+
+
                             <li>
                                 <a href="admin.php"><i class="ti-layout"></i><span>Kelola Admin</span></a>
                             </li>
+
+                            <li>
+                                <a href="pendaftaran.php"><i class="ti-layout"></i><span>Manajemen Pendaftaran</span></a>
+                            </li>
+
                             <li>
                                 <a href="../logout.php"><span>Logout</span></a>
 
